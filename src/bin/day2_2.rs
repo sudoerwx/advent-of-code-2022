@@ -1,8 +1,11 @@
 fn main() {
-    let data: &str = include_str!("../data/day2.txt");
+    let data = include_str!("../data/day2.txt")
+        .trim()
+        .split("\n")
+        .map(str::trim);
 
     fn calc_points(guide: &str) -> u32 {
-        match guide.trim() {
+        match guide {
             "A X" => 0 + 3,
             "A Y" => 3 + 1,
             "A Z" => 6 + 2,
@@ -16,7 +19,7 @@ fn main() {
         }
     }
 
-    let result: u32 = data.trim().split("\n").map(calc_points).sum();
+    let result: u32 = data.map(calc_points).sum();
 
     println!("{:?}", result);
 }
