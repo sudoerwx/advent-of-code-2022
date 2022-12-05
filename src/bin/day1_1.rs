@@ -8,7 +8,7 @@ fn main() {
             calories_chunk
                 .split("\n")
                 .map(|calories| calories.parse::<u64>().unwrap())
-                .sum::<u64>()
+                .sum()
         })
         .max()
         .unwrap();
