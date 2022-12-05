@@ -14,7 +14,7 @@ fn main() {
         .flat_map(|chunk| {
             chunk
                 .iter()
-                .flat_map(|line| line.chars().collect::<HashSet<_>>().into_iter())
+                .flat_map(|line| line.chars().collect::<HashSet<_>>())
                 .fold(HashMap::new(), |mut acc: HashMap<char, u32>, c| {
                     *acc.entry(c).or_insert(0) += 1;
                     return acc;
